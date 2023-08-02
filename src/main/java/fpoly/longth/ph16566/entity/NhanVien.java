@@ -10,8 +10,8 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "KhachHang")
-public class KhachHang {
+@Table(name = "NhanVien")
+public class NhanVien {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
@@ -32,19 +32,28 @@ public class KhachHang {
     @Column(name = "ngaysinh")
     private String ngaySinh;
 
-    @Column(name = "Sdt")
-    private String sdt;
-
     @Column(name = "DiaChi")
     private String diaChi;
 
-    @Column(name = "ThanhPho")
-    private String thanhPho;
-
-    @Column(name = "QuocGia")
-    private String quocGia;
+    @Column(name = "Sdt")
+    private String sdt;
 
     @Column(name = "MatKhau")
     private String matKhau;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "IdCH", referencedColumnName = "id")
+    private CuaHang cuaHang;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "IdCV", referencedColumnName = "id")
+    private ChucVu chucVu;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "IdGuiBC", referencedColumnName = "id")
+    private NhanVien nhanVien;
+
+    @Column(name = "TrangThai")
+    private String trangThai;
 
 }

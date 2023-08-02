@@ -20,8 +20,8 @@ public class KhachHangServiceImpl implements KhachHangService {
     }
 
     @Override
-    public void remove(KhachHang kh) {
-        khachHangRepository.remove(kh);
+    public Boolean remove(KhachHang kh) {
+        return khachHangRepository.remove(kh);
     }
 
     @Override
@@ -37,5 +37,10 @@ public class KhachHangServiceImpl implements KhachHangService {
     @Override
     public Boolean update(KhachHang kh) {
         return khachHangRepository.update(kh);
+    }
+
+    @Override
+    public KhachHang getOne(String idParam) {
+        return khachHangRepository.getOne(idParam);
     }
 }

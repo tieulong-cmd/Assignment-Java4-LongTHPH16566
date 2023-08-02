@@ -9,7 +9,7 @@ public interface KhachHangService {
 
     Boolean add(KhachHang kh);
 
-    void remove(KhachHang kh);
+    Boolean remove(KhachHang kh);
 
     KhachHang detail(String ma);
 
@@ -17,4 +17,5 @@ public interface KhachHangService {
 
     Boolean update(KhachHang kh);
 
+    KhachHang getOne(String idParam);
 }

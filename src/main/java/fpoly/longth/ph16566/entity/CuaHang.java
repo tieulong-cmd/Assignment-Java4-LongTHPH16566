@@ -10,8 +10,8 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "KhachHang")
-public class KhachHang {
+@Table(name = "CuaHang")
+public class CuaHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
@@ -23,18 +23,6 @@ public class KhachHang {
     @Column(name = "Ten")
     private String ten;
 
-    @Column(name = "TenDem")
-    private String tenDem;
-
-    @Column(name = "Ho")
-    private String ho;
-
-    @Column(name = "ngaysinh")
-    private String ngaySinh;
-
-    @Column(name = "Sdt")
-    private String sdt;
-
     @Column(name = "DiaChi")
     private String diaChi;
 
@@ -43,8 +31,5 @@ public class KhachHang {
 
     @Column(name = "QuocGia")
     private String quocGia;
-
-    @Column(name = "MatKhau")
-    private String matKhau;
 
 }

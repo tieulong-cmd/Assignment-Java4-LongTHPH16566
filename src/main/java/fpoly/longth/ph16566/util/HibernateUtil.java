@@ -1,6 +1,6 @@
 package fpoly.longth.ph16566.util;
 
-import fpoly.longth.ph16566.entity.KhachHang;
+import fpoly.longth.ph16566.entity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -25,6 +25,10 @@ public class HibernateUtil {
 
         conf.setProperties(properties);
         conf.addAnnotatedClass(KhachHang.class);
+        conf.addAnnotatedClass(NhanVien.class);
+        conf.addAnnotatedClass(CuaHang.class);
+        conf.addAnnotatedClass(SanPham.class);
+        conf.addAnnotatedClass(ChucVu.class);
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
         FACTORY = conf.buildSessionFactory(registry);
 

@@ -9,23 +9,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>QuanLyKhachHang</title>
+    <title>KhachHang</title>
 </head>
 <body>
 <form action="">
-
-</form>
-<form action="">
-    id: <input type="text" name="id" value="${kh.id}"/>
-    mã: <input type="text" name="ma" value="${kh.ma}"/>
-    tên: <input type="text" name="ten" value="${kh.ten}"/>
-    tên đệm: <input type="text" name="tenDem" value="${kh.tenDem}"/>
-    họ: <input type="text" name="ho" value="${kh.ho}"/>
-    ngày sinh: <input type="text" name="ngaySinh" value="${kh.ngaySinh}"/>
-    sdt: <input type="text" name="sdt" value="${kh.sdt}"/>
-    địa chỉ: <input type="text" name="diaChi" value="${kh.diaChi}"/>
-    thành phố: <input type="text" name="thanhPho" value="${kh.thanhPho}"/>
-    quốc gia: <input type="text" name="quocGia" value="${kh.quocGia}"/>
+    id: <input type="text" name="id" value="${khv.id}"/><br>
+    mã: <input type="text" name="ma" value="${khv.ma}"/><br>
+    tên: <input type="text" name="ten" value="${khv.ten}"/><br>
+    tên đệm: <input type="text" name="tenDem" value="${khv.tenDem}"/><br>
+    họ: <input type="text" name="ho" value="${khv.ho}"/><br>
+    ngày sinh: <input type="text" name="ngaySinh" value="${khv.ngaySinh}"/><br>
+    sdt: <input type="text" name="sdt" value="${khv.sdt}"/><br>
+    địa chỉ: <input type="text" name="diaChi" value="${khv.diaChi}"/><br>
+    thành phố: <input type="text" name="thanhPho" value="${khv.thanhPho}"/><br>
+    quốc gia: <input type="text" name="quocGia" value="${khv.quocGia}"/><br>
 </form>
 <table>
     <tr>
@@ -45,8 +42,8 @@
     <tbody>
     <c:forEach items="${khachHang}" var="kh">
         <tr>
-            <td>${kh.ma}</td>
             <td>${kh.id}</td>
+            <td>${kh.ma}</td>
             <td>${kh.ten}</td>
             <td>${kh.tenDem}</td>
             <td>${kh.ho}</td>
@@ -56,9 +53,9 @@
             <td>${kh.thanhPho}</td>
             <td>${kh.quocGia}</td>
             <td>
-                <button><a href="/may-tinh/remove?DeleteMa=${kh.ma}">Delete</a></button>
-                <button><a href="/may-tinh/detail?DetailMa=${kh.ma}">Detail</a></button>
-                <button><a href="/may-tinh/view-update?UpdateMa=${kh.ma}">Update</a></button>
+                <button><a href="/khach-hang/xoa-khach-hang?DeleteId=${kh.id}">Delete</a></button>
+                <button><a href="/khach-hang/hien-thi-chi-tiet?DetailId=${kh.id}">Detail</a></button>
+                <button><a href="/khach-hang/hien-thi-cap-nhat?UpdateId=${kh.id}">Update</a></button>
             </td>
         </tr>
     </c:forEach>

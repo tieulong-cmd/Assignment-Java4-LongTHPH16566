@@ -16,6 +16,7 @@ import java.util.List;
 
 @WebServlet(name = "KhachHangServlet", value = {
         "/khach-hang/hien-thi-danh-sach",
+        "/khach-hang/hien-thi-chi-tiet",
         "/khach-hang/tim-kiem",
         "/khach-hang/hien-thi-cap-nhat",
         "/khach-hang/cap-nhat-khach-hang",
@@ -39,11 +40,23 @@ public class KhachHangServlet extends HttpServlet {
             this.hienThiThem(req, resp);
         } else if (uri.contains("xoa-khach-hang")) {
             this.xoaKhachHang(req, resp);
+        } else if (uri.contains("chi-tiet")) {
+            this.hienThiChiTiet(req, resp);
         }
     }
 
-    private void hienThiDanhSach(HttpServletRequest req, HttpServletResponse resp) {
-        khachHangService.getAll();
+    private void hienThiChiTiet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idParam = req.getParameter("DetailId");
+        KhachHang khachHang = khachHangService.getOne(idParam);
+        req.setAttribute("khv", khachHang);
+
+        hienThiDanhSach(req, resp);
+    }
+
+    private void hienThiDanhSach(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<KhachHang> khachHangList = khachHangService.getAll();
+        req.setAttribute("khachHang", khachHangList);
+        req.getRequestDispatcher("/view/KhachHang/KhachHang.jsp").forward(req, resp);
     }
 
     private void timKiemKhachHang(HttpServletRequest req, HttpServletResponse resp) {
@@ -51,15 +64,22 @@ public class KhachHangServlet extends HttpServlet {
         khachHangService.searchName(tenParam);
     }
 
-    private void hienThiCapNhat(HttpServletRequest req, HttpServletResponse resp) {
-
+    private void hienThiCapNhat(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idParam = req.getParameter("UpdateId");
+        KhachHang khachHang = khachHangService.getOne(idParam);
+        req.setAttribute("khu", khachHang);
+        req.getRequestDispatcher("/view/KhachHang/CapNhatKhachHang.jsp").forward(req, resp);
     }
 
-    private void hienThiThem(HttpServletRequest req, HttpServletResponse resp) {
+    private void hienThiThem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/view/KhachHang/ThemKhachHang.jsp").forward(req, resp);
     }
 
-    private void xoaKhachHang(HttpServletRequest req, HttpServletResponse resp) {
-
+    private void xoaKhachHang(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String maParam = req.getParameter("DeleteId");
+        KhachHang khachHang = khachHangService.getOne(maParam);
+        khachHangService.remove(khachHang);
+        resp.sendRedirect("/khach-hang/hien-thi-danh-sach");
     }
 
     @Override
@@ -72,9 +92,61 @@ public class KhachHangServlet extends HttpServlet {
         }
     }
 
-    private void themKhachHang(HttpServletRequest req, HttpServletResponse resp) {
+    private void themKhachHang(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String maParam = req.getParameter("ma");
+        String tenParam = req.getParameter("ten");
+        String tenDemParam = req.getParameter("tenDem");
+        String hoParam = req.getParameter("ho");
+        String ngaySinhParam = req.getParameter("ngaySinh");
+        String sdtParam = req.getParameter("sdt");
+        String diaChiParam = req.getParameter("diaChi");
+        String thanhPhoParam = req.getParameter("thanhPho");
+        String quocGiaParam = req.getParameter("quocGia");
+        String matKhauParam = req.getParameter("matKhau");
+
+        KhachHang khachHang = KhachHang.builder()
+                .ma(maParam)
+                .ten(tenParam)
+                .tenDem(tenDemParam)
+                .ho(hoParam)
+                .ngaySinh(ngaySinhParam)
+                .sdt(sdtParam)
+                .diaChi(diaChiParam)
+                .thanhPho(thanhPhoParam)
+                .quocGia(quocGiaParam)
+                .matKhau(matKhauParam)
+                .build();
+        khachHangService.add(khachHang);
+        resp.sendRedirect("/khach-hang/hien-thi-danh-sach");
     }
 
-    private void capNhatKhachHang(HttpServletRequest req, HttpServletResponse resp) {
+    private void capNhatKhachHang(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String idParam = req.getParameter("id");
+        String maParam = req.getParameter("ma");
+        String tenParam = req.getParameter("ten");
+        String tenDemParam = req.getParameter("tenDem");
+        String hoParam = req.getParameter("ho");
+        String ngaySinhParam = req.getParameter("ngaySinh");
+        String sdtParam = req.getParameter("sdt");
+        String diaChiParam = req.getParameter("diaChi");
+        String thanhPhoParam = req.getParameter("thanhPho");
+        String quocGiaParam = req.getParameter("quocGia");
+        String matKhauParam = req.getParameter("matKhau");
+
+        KhachHang khachHang = KhachHang.builder()
+                .id(idParam)
+                .ma(maParam)
+                .ten(tenParam)
+                .tenDem(tenDemParam)
+                .ho(hoParam)
+                .ngaySinh(ngaySinhParam)
+                .sdt(sdtParam)
+                .diaChi(diaChiParam)
+                .thanhPho(thanhPhoParam)
+                .quocGia(quocGiaParam)
+                .matKhau(matKhauParam)
+                .build();
+        khachHangService.update(khachHang);
+        resp.sendRedirect("/khach-hang/hien-thi-danh-sach");
     }
 }

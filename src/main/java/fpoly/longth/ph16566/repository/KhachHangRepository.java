@@ -16,16 +16,16 @@ public class KhachHangRepository {
         }
     }
 
-    public KhachHang getOne(String maParam) {
-        KhachHang mayTinh = null;
+    public KhachHang getOne(String idParam) {
+        KhachHang khachHang = null;
         try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            Query query = session.createQuery("FROM KhachHang WHERE ma =: maGetOne", KhachHang.class);
-            query.setParameter("maGetOne", maParam);
-            mayTinh = (KhachHang) query.getSingleResult();
+            Query query = session.createQuery("FROM KhachHang WHERE id =: idGetOne", KhachHang.class);
+            query.setParameter("idGetOne", idParam);
+            khachHang = (KhachHang) query.getSingleResult();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return mayTinh;
+        return khachHang;
     }
 
     public List<KhachHang> filterByName(String tenParam) {

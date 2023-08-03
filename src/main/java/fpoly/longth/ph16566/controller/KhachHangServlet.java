@@ -14,34 +14,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@WebServlet(name = "KhachHangServlet", value = {
-        "/khach-hang/hien-thi-danh-sach",
-        "/khach-hang/hien-thi-chi-tiet",
-        "/khach-hang/tim-kiem",
-        "/khach-hang/hien-thi-cap-nhat",
-        "/khach-hang/cap-nhat-khach-hang",
-        "/khach-hang/hien-thi-them",
-        "/khach-hang/them-khach-hang",
-        "/khach-hang/xoa-khach-hang"})
+@WebServlet("/khach-hang/*")
 public class KhachHangServlet extends HttpServlet {
     List<KhachHang> khachHangList = new ArrayList<>();
     KhachHangService khachHangService = new KhachHangServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String uri = req.getRequestURI();
-        if (uri.contains("danh-sach")) {
-            this.hienThiDanhSach(req, resp);
-        } else if (uri.contains("tim-kiem")) {
-            this.timKiemKhachHang(req, resp);
-        } else if (uri.contains("hien-thi-cap-nhat")) {
-            this.hienThiCapNhat(req, resp);
-        } else if (uri.contains("hien-thi-them")) {
-            this.hienThiThem(req, resp);
-        } else if (uri.contains("xoa-khach-hang")) {
-            this.xoaKhachHang(req, resp);
-        } else if (uri.contains("chi-tiet")) {
-            this.hienThiChiTiet(req, resp);
+        String action = req.getPathInfo();
+        if (action == null) {
+            action = "/hien-thi-danh-sach";
+        }
+
+        switch (action) {
+            case "/hien-thi-danh-sach":
+                hienThiDanhSach(req, resp);
+                break;
+            case "/hien-thi-chi-tiet":
+                hienThiChiTiet(req, resp);
+                break;
+            case "/tim-kiem":
+                timKiemKhachHang(req, resp);
+                break;
+            case "/hien-thi-cap-nhat":
+                hienThiCapNhat(req, resp);
+                break;
+            case "/hien-thi-them":
+                hienThiThem(req, resp);
+                break;
+            case "/xoa-khach-hang":
+                xoaKhachHang(req, resp);
+                break;
+            default:
+                resp.sendRedirect("/khach-hang/hien-thi-danh-sach");
         }
     }
 
@@ -84,11 +89,20 @@ public class KhachHangServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String uri = req.getRequestURI();
-        if (uri.contains("them-khach-hang")) {
-            this.themKhachHang(req, resp);
-        } else if (uri.contains("cap-nhat-khach-hang")) {
-            this.capNhatKhachHang(req, resp);
+        String action = req.getPathInfo();
+        if (action == null) {
+            action = "/hien-thi-danh-sach";
+        }
+
+        switch (action) {
+            case "/them-khach-hang":
+                themKhachHang(req, resp);
+                break;
+            case "/cap-nhat-khach-hang":
+                capNhatKhachHang(req, resp);
+                break;
+            default:
+                resp.sendRedirect("/khach-hang/hien-thi-danh-sach");
         }
     }
 

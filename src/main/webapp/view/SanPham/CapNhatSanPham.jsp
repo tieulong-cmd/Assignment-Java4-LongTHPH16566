@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>CapNhatSanPham</title>
 </head>
 <body>
-
+<form action="/san-pham/cap-nhat-san-pham" method="post">
+    id: <input type="text" name="id" value="${sp.id}"/><br>
+    mã: <input type="text" name="ma" value="${sp.ma}"/><br>
+    tên: <input type="text" name="ten" value="${sp.ten}"/><br>
+    <button type="submit">Update</button>
+</form>
 </body>
 </html>
+

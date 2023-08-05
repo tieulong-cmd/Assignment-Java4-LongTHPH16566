@@ -9,6 +9,38 @@
 <html>
 <head>
     <title>ThemDongSP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
 <form action="/dong-sp/them-dong-sp" method="post">

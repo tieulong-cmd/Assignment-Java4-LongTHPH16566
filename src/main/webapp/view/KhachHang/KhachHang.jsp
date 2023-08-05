@@ -10,6 +10,62 @@
 <html>
 <head>
     <title>KhachHang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        button {
+            background-color: #007bff;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 <form action="">
@@ -24,6 +80,9 @@
     thành phố: <input type="text" name="thanhPho" value="${khv.thanhPho}"/><br>
     quốc gia: <input type="text" name="quocGia" value="${khv.quocGia}"/><br>
 </form>
+<button><a href="/khach-hang/hien-thi-them">chuyển trang add</a></button>
+<br>
+<br>
 <table>
     <tr>
         <th>id</th>

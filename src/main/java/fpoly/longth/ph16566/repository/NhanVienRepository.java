@@ -72,12 +72,11 @@ public class NhanVienRepository implements NhanVienService {
 
     @Override
     public NhanVien getOne(String idParam) {
-
         NhanVien nhanVien = null;
         try (Session session = HibernateUtil.getFACTORY().openSession()) {
-            Query query = session.createQuery("FROM NhanVien WHERE id =: idGetOne", NhanVien.class);
-            query.setParameter("idGetOne", idParam);
-            nhanVien = (NhanVien) query.getSingleResult();
+            Query<NhanVien> query = session.createQuery("FROM NhanVien WHERE id = :idParam", NhanVien.class);
+            query.setParameter("idParam", idParam);
+            nhanVien = query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
         }

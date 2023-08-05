@@ -56,7 +56,7 @@ public class NSXServlet extends HttpServlet {
     private void hienThiChiTiet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idParam = req.getParameter("DetailId");
         NSX nsx = nsxService.getOne(idParam);
-        req.setAttribute("nsx", nsx);
+        req.setAttribute("nsxv", nsx);
 
         hienThiDanhSach(req, resp);
     }

@@ -17,21 +17,17 @@ public class ChiTietSP {
     @Column(name = "Id")
     private String id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdSP", referencedColumnName = "Id")
-    private SanPham sanPham;
+    @Column(name = "IdSP")
+    private String idSP;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdNsx", referencedColumnName = "Id")
-    private NSX nsx;
+    @Column(name = "IdNsx")
+    private String idNsx;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdMauSac", referencedColumnName = "Id")
-    private MauSac mauSac;
+    @Column(name = "IdMauSac")
+    private String idMauSac;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdDongSP", referencedColumnName = "Id")
-    private DongSP dongSP;
+    @Column(name = "IdDongSP")
+    private String idDongSP;
 
     @Column(name = "NamBH")
     private Integer namBH;

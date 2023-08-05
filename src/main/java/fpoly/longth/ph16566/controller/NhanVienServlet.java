@@ -21,8 +21,6 @@ import java.util.List;
 @WebServlet("/nhan-vien/*")
 public class NhanVienServlet extends HttpServlet {
     private NhanVienService nhanVienService = new NhanVienServiceImpl();
-    private CuaHangService cuaHangService = new CuaHangServiceImpl();
-    private ChucVuService chucVuService = new ChucVuServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,7 +42,7 @@ public class NhanVienServlet extends HttpServlet {
             case "/hien-thi-cap-nhat":
                 hienThiCapNhat(req, resp);
                 break;
-            case "/hien-thi-them":
+                case "/hien-thi-them":
                 hienThiThem(req, resp);
                 break;
             case "/xoa-nhan-vien":
@@ -138,9 +136,9 @@ public class NhanVienServlet extends HttpServlet {
                 .diaChi(diaChiParam)
                 .sdt(sdtParam)
                 .matKhau(matKhauParam)
-                .cuaHang(CuaHang.builder().id(idCHParam).build())
-                .chucVu(ChucVu.builder().id(idCVParam).build())
-                .nhanVien(NhanVien.builder().id(idGuiBCParam).build())
+                .idCH(idCHParam)
+                .idCV(idCVParam)
+                .idGUIBC(idGuiBCParam)
                 .trangThai(trangThaiParam)
                 .build();
         nhanVienService.add(nhanVien);
@@ -163,10 +161,6 @@ public class NhanVienServlet extends HttpServlet {
         String idGuiBCParam = req.getParameter("nhanVien.id");
         String trangThaiParam = req.getParameter("trangThai");
 
-        CuaHang cuaHang = cuaHangService.getOne(idCHParam);
-        ChucVu chucVu = chucVuService.getOne(idCVParam);
-        NhanVien nhanVienGuiBC = nhanVienService.getOne(idGuiBCParam);
-
         NhanVien nhanVien = NhanVien.builder()
                 .id(idParam)
                 .ma(maParam)
@@ -177,9 +171,9 @@ public class NhanVienServlet extends HttpServlet {
                 .diaChi(diaChiParam)
                 .sdt(sdtParam)
                 .matKhau(matKhauParam)
-                .cuaHang(cuaHang)
-                .chucVu(chucVu)
-                .nhanVien(nhanVienGuiBC)
+                .idCH(idCHParam)
+                .idCV(idCVParam)
+                .idGUIBC(idGuiBCParam)
                 .trangThai(trangThaiParam)
                 .build();
 

@@ -41,17 +41,14 @@ public class NhanVien {
     @Column(name = "MatKhau")
     private String matKhau;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdCH", referencedColumnName = "id")
-    private CuaHang cuaHang;
+    @Column(name = "IdCH")
+    private String idCH;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdCV", referencedColumnName = "id")
-    private ChucVu chucVu;
+    @Column(name = "IdCV")
+    private String idCV;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IdGuiBC", referencedColumnName = "id")
-    private NhanVien nhanVien;
+    @JoinColumn(name = "IdGuiBC")
+    private String idGUIBC;
 
     @Column(name = "TrangThai")
     private String trangThai;

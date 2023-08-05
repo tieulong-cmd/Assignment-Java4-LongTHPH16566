@@ -10,6 +10,62 @@
 <html>
 <head>
     <title>NhanVien</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        button {
+            background-color: #007bff;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 <form action="">
@@ -18,15 +74,18 @@
     tên: <input type="text" name="ten" value="${nvv.ten}"/><br>
     tên đệm: <input type="text" name="tenDem" value="${nvv.tenDem}"/><br>
     họ: <input type="text" name="ho" value="${nvv.ho}"/><br>
-    ngày sinh: <input type="text" name="ngaySinh" value="${nvv.ngaySinh}"/><br>
+    ngày sinh: <input type="date" name="ngaySinh" value="${nvv.ngaySinh}"/><br>
     địa chỉ: <input type="text" name="diaChi" value="${nvv.diaChi}"/><br>
     sdt: <input type="text" name="sdt" value="${nvv.sdt}"/><br>
     mật khẩu: <input type="text" name="matKhau" value="${nvv.matKhau}"/><br>
-    IdCH: <input type="text" name="IdCH" value="${nvv.cuaHang.id}"/><br>
-    IdCV: <input type="text" name="IdCV" value="${nvv.chucVu.id}"/><br>
-    IdGuiBC: <input type="text" name="IdGuiBC" value="${nvv.nhanVien.id}"/><br>
+    IdCH: <input type="text" name="IdCH" value="${nvv.idCH}"/><br>
+    IdCV: <input type="text" name="IdCV" value="${nvv.idCV}"/><br>
+    IdGuiBC: <input type="text" name="IdGuiBC" value="${nvv.idGUIBC}"/><br>
     trạng thái: <input type="text" name="trangThai" value="${nvv.trangThai}"/><br>
 </form>
+<button><a href="/nhan-vien/hien-thi-them">chuyển trang add</a></button>
+<br>
+<br>
 <table>
     <tr>
         <th>id</th>
@@ -57,9 +116,9 @@
             <td>${nv.diaChi}</td>
             <td>${nv.sdt}</td>
             <td>${nv.matKhau}</td>
-            <td>${nv.cuaHang.id}</td>
-            <td>${nv.chucVu.id}</td>
-            <td>${nv.nhanVien.id}</td>
+            <td>${nv.idCH}</td>
+            <td>${nv.idCV}</td>
+            <td>${nv.idGUIBC}</td>
             <td>${nv.trangThai}</td>
             <td>
                 <button><a href="/nhan-vien/xoa-nhan-vien?DeleteId=${nv.id}">Delete</a></button>

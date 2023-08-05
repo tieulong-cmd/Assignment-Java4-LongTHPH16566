@@ -10,13 +10,72 @@
 <html>
 <head>
     <title>ChucVu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        button {
+            background-color: #007bff;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 <form action="">
-    id: <input type="text" name="id" value="${cv.id}"/><br>
-    mã: <input type="text" name="ma" value="${cv.ma}"/><br>
-    tên: <input type="text" name="ten" value="${cv.ten}"/><br>
+    id: <input type="text" name="id" value="${cvc.id}"/><br>
+    mã: <input type="text" name="ma" value="${cvc.ma}"/><br>
+    tên: <input type="text" name="ten" value="${cvc.ten}"/><br>
 </form>
+<button><a href="/chuc-vu/hien-thi-them">chuyển trang add</a></button>
+<br>
+<br>
 <table>
     <tr>
         <th>id</th>

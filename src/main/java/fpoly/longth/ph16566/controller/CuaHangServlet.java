@@ -56,7 +56,7 @@ public class CuaHangServlet extends HttpServlet {
     private void hienThiChiTiet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idParam = req.getParameter("DetailId");
         CuaHang cuaHang = cuaHangService.getOne(idParam);
-        req.setAttribute("cuaHang", cuaHang);
+        req.setAttribute("chv", cuaHang);
         req.getRequestDispatcher("/view/CuaHang/ChiTietCuaHang.jsp").forward(req, resp);
     }
 
@@ -70,7 +70,7 @@ public class CuaHangServlet extends HttpServlet {
     private void hienThiCapNhat(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idParam = req.getParameter("UpdateId");
         CuaHang cuaHang = cuaHangService.getOne(idParam);
-        req.setAttribute("cuaHang", cuaHang);
+        req.setAttribute("chu", cuaHang);
         req.getRequestDispatcher("/view/CuaHang/CapNhatCuaHang.jsp").forward(req, resp);
     }
 

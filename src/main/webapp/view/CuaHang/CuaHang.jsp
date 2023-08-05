@@ -10,16 +10,75 @@
 <html>
 <head>
     <title>CuaHang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        button {
+            background-color: #007bff;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 <form action="">
-    id: <input type="text" name="id" value="${ch.id}"/><br>
-    mã: <input type="text" name="ma" value="${ch.ma}"/><br>
-    tên: <input type="text" name="ten" value="${ch.ten}"/><br>
-    địa chỉ: <input type="text" name="diaChi" value="${ch.diaChi}"/><br>
-    thành phố: <input type="text" name="thanhPho" value="${ch.thanhPho}"/><br>
-    quốc gia: <input type="text" name="quocGia" value="${ch.quocGia}"/><br>
+    id: <input type="text" name="id" value="${chv.id}"/><br>
+    mã: <input type="text" name="ma" value="${chv.ma}"/><br>
+    tên: <input type="text" name="ten" value="${chv.ten}"/><br>
+    địa chỉ: <input type="text" name="diaChi" value="${chv.diaChi}"/><br>
+    thành phố: <input type="text" name="thanhPho" value="${chv.thanhPho}"/><br>
+    quốc gia: <input type="text" name="quocGia" value="${chv.quocGia}"/><br>
 </form>
+<button><a href="/cua-hang/hien-thi-them">chuyển trang add</a></button>
+<br>
+<br>
 <table>
     <tr>
         <th>id</th>
